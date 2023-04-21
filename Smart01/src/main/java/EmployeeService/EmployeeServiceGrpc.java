@@ -12,100 +12,100 @@ public final class EmployeeServiceGrpc {
 
   private EmployeeServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "employee.EmployeeService";
+  public static final String SERVICE_NAME = "EmployeeService.EmployeeService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<GetEmployeeSystemRequest,
-      GetEmployeeSystemResponse> getGetEmployeeSystemMethod;
+  private static volatile io.grpc.MethodDescriptor<AddEmployeeRequest,
+      AddEmployeeResponse> getAddEmployeeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GetEmployeeSystem",
-      requestType = GetEmployeeSystemRequest.class,
-      responseType = GetEmployeeSystemResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "AddEmployee",
+      requestType = AddEmployeeRequest.class,
+      responseType = AddEmployeeResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<GetEmployeeSystemRequest,
-      GetEmployeeSystemResponse> getGetEmployeeSystemMethod() {
-    io.grpc.MethodDescriptor<GetEmployeeSystemRequest, GetEmployeeSystemResponse> getGetEmployeeSystemMethod;
-    if ((getGetEmployeeSystemMethod = EmployeeServiceGrpc.getGetEmployeeSystemMethod) == null) {
+  public static io.grpc.MethodDescriptor<AddEmployeeRequest,
+      AddEmployeeResponse> getAddEmployeeMethod() {
+    io.grpc.MethodDescriptor<AddEmployeeRequest, AddEmployeeResponse> getAddEmployeeMethod;
+    if ((getAddEmployeeMethod = EmployeeServiceGrpc.getAddEmployeeMethod) == null) {
       synchronized (EmployeeServiceGrpc.class) {
-        if ((getGetEmployeeSystemMethod = EmployeeServiceGrpc.getGetEmployeeSystemMethod) == null) {
-          EmployeeServiceGrpc.getGetEmployeeSystemMethod = getGetEmployeeSystemMethod =
-              io.grpc.MethodDescriptor.<GetEmployeeSystemRequest, GetEmployeeSystemResponse>newBuilder()
+        if ((getAddEmployeeMethod = EmployeeServiceGrpc.getAddEmployeeMethod) == null) {
+          EmployeeServiceGrpc.getAddEmployeeMethod = getAddEmployeeMethod =
+              io.grpc.MethodDescriptor.<AddEmployeeRequest, AddEmployeeResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetEmployeeSystem"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddEmployee"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GetEmployeeSystemRequest.getDefaultInstance()))
+                  AddEmployeeRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GetEmployeeSystemResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new EmployeeServiceMethodDescriptorSupplier("GetEmployeeSystem"))
+                  AddEmployeeResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new EmployeeServiceMethodDescriptorSupplier("AddEmployee"))
               .build();
         }
       }
     }
-    return getGetEmployeeSystemMethod;
+    return getAddEmployeeMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<ListEmployeesSystemRequest,
-      ListEmployeesSystemResponse> getListEmployeesSystemMethod;
+  private static volatile io.grpc.MethodDescriptor<GetEmployeeRequest,
+      GetEmployeeResponse> getGetEmployeeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ListEmployeesSystem",
-      requestType = ListEmployeesSystemRequest.class,
-      responseType = ListEmployeesSystemResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<ListEmployeesSystemRequest,
-      ListEmployeesSystemResponse> getListEmployeesSystemMethod() {
-    io.grpc.MethodDescriptor<ListEmployeesSystemRequest, ListEmployeesSystemResponse> getListEmployeesSystemMethod;
-    if ((getListEmployeesSystemMethod = EmployeeServiceGrpc.getListEmployeesSystemMethod) == null) {
+      fullMethodName = SERVICE_NAME + '/' + "GetEmployee",
+      requestType = GetEmployeeRequest.class,
+      responseType = GetEmployeeResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<GetEmployeeRequest,
+      GetEmployeeResponse> getGetEmployeeMethod() {
+    io.grpc.MethodDescriptor<GetEmployeeRequest, GetEmployeeResponse> getGetEmployeeMethod;
+    if ((getGetEmployeeMethod = EmployeeServiceGrpc.getGetEmployeeMethod) == null) {
       synchronized (EmployeeServiceGrpc.class) {
-        if ((getListEmployeesSystemMethod = EmployeeServiceGrpc.getListEmployeesSystemMethod) == null) {
-          EmployeeServiceGrpc.getListEmployeesSystemMethod = getListEmployeesSystemMethod =
-              io.grpc.MethodDescriptor.<ListEmployeesSystemRequest, ListEmployeesSystemResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListEmployeesSystem"))
+        if ((getGetEmployeeMethod = EmployeeServiceGrpc.getGetEmployeeMethod) == null) {
+          EmployeeServiceGrpc.getGetEmployeeMethod = getGetEmployeeMethod =
+              io.grpc.MethodDescriptor.<GetEmployeeRequest, GetEmployeeResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetEmployee"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  ListEmployeesSystemRequest.getDefaultInstance()))
+                  GetEmployeeRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  ListEmployeesSystemResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new EmployeeServiceMethodDescriptorSupplier("ListEmployeesSystem"))
+                  GetEmployeeResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new EmployeeServiceMethodDescriptorSupplier("GetEmployee"))
               .build();
         }
       }
     }
-    return getListEmployeesSystemMethod;
+    return getGetEmployeeMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<UpdatingEmployeeInformationRequest,
-      UpdatingEmployeeInformationResponse> getUpdateEmployeeSystemMethod;
+  private static volatile io.grpc.MethodDescriptor<UpdateEmployeeRequest,
+      UpdateEmployeeResponse> getUpdateEmployeeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "UpdateEmployeeSystem",
-      requestType = UpdatingEmployeeInformationRequest.class,
-      responseType = UpdatingEmployeeInformationResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "UpdateEmployee",
+      requestType = UpdateEmployeeRequest.class,
+      responseType = UpdateEmployeeResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
-  public static io.grpc.MethodDescriptor<UpdatingEmployeeInformationRequest,
-      UpdatingEmployeeInformationResponse> getUpdateEmployeeSystemMethod() {
-    io.grpc.MethodDescriptor<UpdatingEmployeeInformationRequest, UpdatingEmployeeInformationResponse> getUpdateEmployeeSystemMethod;
-    if ((getUpdateEmployeeSystemMethod = EmployeeServiceGrpc.getUpdateEmployeeSystemMethod) == null) {
+  public static io.grpc.MethodDescriptor<UpdateEmployeeRequest,
+      UpdateEmployeeResponse> getUpdateEmployeeMethod() {
+    io.grpc.MethodDescriptor<UpdateEmployeeRequest, UpdateEmployeeResponse> getUpdateEmployeeMethod;
+    if ((getUpdateEmployeeMethod = EmployeeServiceGrpc.getUpdateEmployeeMethod) == null) {
       synchronized (EmployeeServiceGrpc.class) {
-        if ((getUpdateEmployeeSystemMethod = EmployeeServiceGrpc.getUpdateEmployeeSystemMethod) == null) {
-          EmployeeServiceGrpc.getUpdateEmployeeSystemMethod = getUpdateEmployeeSystemMethod =
-              io.grpc.MethodDescriptor.<UpdatingEmployeeInformationRequest, UpdatingEmployeeInformationResponse>newBuilder()
+        if ((getUpdateEmployeeMethod = EmployeeServiceGrpc.getUpdateEmployeeMethod) == null) {
+          EmployeeServiceGrpc.getUpdateEmployeeMethod = getUpdateEmployeeMethod =
+              io.grpc.MethodDescriptor.<UpdateEmployeeRequest, UpdateEmployeeResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateEmployeeSystem"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateEmployee"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  UpdatingEmployeeInformationRequest.getDefaultInstance()))
+                  UpdateEmployeeRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  UpdatingEmployeeInformationResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new EmployeeServiceMethodDescriptorSupplier("UpdateEmployeeSystem"))
+                  UpdateEmployeeResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new EmployeeServiceMethodDescriptorSupplier("UpdateEmployee"))
               .build();
         }
       }
     }
-    return getUpdateEmployeeSystemMethod;
+    return getUpdateEmployeeMethod;
   }
 
   /**
@@ -158,48 +158,48 @@ public final class EmployeeServiceGrpc {
 
     /**
      */
-    public void getEmployeeSystem(GetEmployeeSystemRequest request,
-                                  io.grpc.stub.StreamObserver<GetEmployeeSystemResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetEmployeeSystemMethod(), responseObserver);
+    public void addEmployee(AddEmployeeRequest request,
+                            io.grpc.stub.StreamObserver<AddEmployeeResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAddEmployeeMethod(), responseObserver);
     }
 
     /**
      */
-    public void listEmployeesSystem(ListEmployeesSystemRequest request,
-                                    io.grpc.stub.StreamObserver<ListEmployeesSystemResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListEmployeesSystemMethod(), responseObserver);
+    public void getEmployee(GetEmployeeRequest request,
+                            io.grpc.stub.StreamObserver<GetEmployeeResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetEmployeeMethod(), responseObserver);
     }
 
     /**
      */
-    public io.grpc.stub.StreamObserver<UpdatingEmployeeInformationRequest> updateEmployeeSystem(
-        io.grpc.stub.StreamObserver<UpdatingEmployeeInformationResponse> responseObserver) {
-      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getUpdateEmployeeSystemMethod(), responseObserver);
+    public io.grpc.stub.StreamObserver<UpdateEmployeeRequest> updateEmployee(
+        io.grpc.stub.StreamObserver<UpdateEmployeeResponse> responseObserver) {
+      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getUpdateEmployeeMethod(), responseObserver);
     }
 
     @Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getGetEmployeeSystemMethod(),
+            getAddEmployeeMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                GetEmployeeSystemRequest,
-                GetEmployeeSystemResponse>(
-                  this, METHODID_GET_EMPLOYEE_SYSTEM)))
+                AddEmployeeRequest,
+                AddEmployeeResponse>(
+                  this, METHODID_ADD_EMPLOYEE)))
           .addMethod(
-            getListEmployeesSystemMethod(),
-            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+            getGetEmployeeMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                ListEmployeesSystemRequest,
-                ListEmployeesSystemResponse>(
-                  this, METHODID_LIST_EMPLOYEES_SYSTEM)))
+                GetEmployeeRequest,
+                GetEmployeeResponse>(
+                  this, METHODID_GET_EMPLOYEE)))
           .addMethod(
-            getUpdateEmployeeSystemMethod(),
+            getUpdateEmployeeMethod(),
             io.grpc.stub.ServerCalls.asyncBidiStreamingCall(
               new MethodHandlers<
-                UpdatingEmployeeInformationRequest,
-                UpdatingEmployeeInformationResponse>(
-                  this, METHODID_UPDATE_EMPLOYEE_SYSTEM)))
+                UpdateEmployeeRequest,
+                UpdateEmployeeResponse>(
+                  this, METHODID_UPDATE_EMPLOYEE)))
           .build();
     }
   }
@@ -220,26 +220,26 @@ public final class EmployeeServiceGrpc {
 
     /**
      */
-    public void getEmployeeSystem(GetEmployeeSystemRequest request,
-                                  io.grpc.stub.StreamObserver<GetEmployeeSystemResponse> responseObserver) {
+    public void addEmployee(AddEmployeeRequest request,
+                            io.grpc.stub.StreamObserver<AddEmployeeResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGetEmployeeSystemMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getAddEmployeeMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void listEmployeesSystem(ListEmployeesSystemRequest request,
-                                    io.grpc.stub.StreamObserver<ListEmployeesSystemResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
-          getChannel().newCall(getListEmployeesSystemMethod(), getCallOptions()), request, responseObserver);
+    public void getEmployee(GetEmployeeRequest request,
+                            io.grpc.stub.StreamObserver<GetEmployeeResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetEmployeeMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public io.grpc.stub.StreamObserver<UpdatingEmployeeInformationRequest> updateEmployeeSystem(
-        io.grpc.stub.StreamObserver<UpdatingEmployeeInformationResponse> responseObserver) {
+    public io.grpc.stub.StreamObserver<UpdateEmployeeRequest> updateEmployee(
+        io.grpc.stub.StreamObserver<UpdateEmployeeResponse> responseObserver) {
       return io.grpc.stub.ClientCalls.asyncBidiStreamingCall(
-          getChannel().newCall(getUpdateEmployeeSystemMethod(), getCallOptions()), responseObserver);
+          getChannel().newCall(getUpdateEmployeeMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -259,17 +259,16 @@ public final class EmployeeServiceGrpc {
 
     /**
      */
-    public GetEmployeeSystemResponse getEmployeeSystem(GetEmployeeSystemRequest request) {
+    public AddEmployeeResponse addEmployee(AddEmployeeRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGetEmployeeSystemMethod(), getCallOptions(), request);
+          getChannel(), getAddEmployeeMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public java.util.Iterator<ListEmployeesSystemResponse> listEmployeesSystem(
-        ListEmployeesSystemRequest request) {
-      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
-          getChannel(), getListEmployeesSystemMethod(), getCallOptions(), request);
+    public GetEmployeeResponse getEmployee(GetEmployeeRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetEmployeeMethod(), getCallOptions(), request);
     }
   }
 
@@ -289,16 +288,24 @@ public final class EmployeeServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GetEmployeeSystemResponse> getEmployeeSystem(
-        GetEmployeeSystemRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<AddEmployeeResponse> addEmployee(
+        AddEmployeeRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGetEmployeeSystemMethod(), getCallOptions()), request);
+          getChannel().newCall(getAddEmployeeMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<GetEmployeeResponse> getEmployee(
+        GetEmployeeRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetEmployeeMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_GET_EMPLOYEE_SYSTEM = 0;
-  private static final int METHODID_LIST_EMPLOYEES_SYSTEM = 1;
-  private static final int METHODID_UPDATE_EMPLOYEE_SYSTEM = 2;
+  private static final int METHODID_ADD_EMPLOYEE = 0;
+  private static final int METHODID_GET_EMPLOYEE = 1;
+  private static final int METHODID_UPDATE_EMPLOYEE = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -317,13 +324,13 @@ public final class EmployeeServiceGrpc {
     @SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_GET_EMPLOYEE_SYSTEM:
-          serviceImpl.getEmployeeSystem((GetEmployeeSystemRequest) request,
-              (io.grpc.stub.StreamObserver<GetEmployeeSystemResponse>) responseObserver);
+        case METHODID_ADD_EMPLOYEE:
+          serviceImpl.addEmployee((AddEmployeeRequest) request,
+              (io.grpc.stub.StreamObserver<AddEmployeeResponse>) responseObserver);
           break;
-        case METHODID_LIST_EMPLOYEES_SYSTEM:
-          serviceImpl.listEmployeesSystem((ListEmployeesSystemRequest) request,
-              (io.grpc.stub.StreamObserver<ListEmployeesSystemResponse>) responseObserver);
+        case METHODID_GET_EMPLOYEE:
+          serviceImpl.getEmployee((GetEmployeeRequest) request,
+              (io.grpc.stub.StreamObserver<GetEmployeeResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -335,9 +342,9 @@ public final class EmployeeServiceGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_UPDATE_EMPLOYEE_SYSTEM:
-          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.updateEmployeeSystem(
-              (io.grpc.stub.StreamObserver<UpdatingEmployeeInformationResponse>) responseObserver);
+        case METHODID_UPDATE_EMPLOYEE:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.updateEmployee(
+              (io.grpc.stub.StreamObserver<UpdateEmployeeResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -389,9 +396,9 @@ public final class EmployeeServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new EmployeeServiceFileDescriptorSupplier())
-              .addMethod(getGetEmployeeSystemMethod())
-              .addMethod(getListEmployeesSystemMethod())
-              .addMethod(getUpdateEmployeeSystemMethod())
+              .addMethod(getAddEmployeeMethod())
+              .addMethod(getGetEmployeeMethod())
+              .addMethod(getUpdateEmployeeMethod())
               .build();
         }
       }

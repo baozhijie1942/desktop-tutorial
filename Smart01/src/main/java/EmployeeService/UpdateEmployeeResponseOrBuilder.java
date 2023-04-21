@@ -3,8 +3,8 @@
 
 package EmployeeService;
 
-public interface UpdatingEmployeeInformationResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:employee.UpdatingEmployeeInformationResponse)
+public interface UpdateEmployeeResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:EmployeeService.UpdateEmployeeResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

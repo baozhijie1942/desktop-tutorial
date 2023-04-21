@@ -1,0 +1,47 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "LightService";
+option java_outer_classname = "LightProto";
+package lights;
+
+service LightService {
+    // 子系统1: 控制一个灯的开/关状态 (一元RPC)
+    rpc ControlLight(ControlLightRequest) returns (ControlLightResponse);
+
+    // 子系统2: 获取一个房间中所有灯的状态 (一元RPC)
+    rpc GetRoomLights(GetRoomLightsRequest) returns (GetRoomLightsResponse);
+
+    // 子系统3: 控制多个灯的开/关状态 (客户端流RPC)
+    rpc ControlMultipleLights(stream ControlMultipleLightsRequest) returns (ControlMultipleLightsResponse);
+}
+
+message ControlLightRequest {
+    string light_id = 1;
+    bool turn_on = 2;
+}
+
+message ControlLightResponse {
+    bool success = 1;
+}
+
+message GetRoomLightsRequest {
+    string room_id = 1;
+}
+
+message Light {
+    string id = 1;
+    bool is_on = 2;
+}
+
+message GetRoomLightsResponse {
+    repeated Light lights = 1;
+}
+
+message ControlMultipleLightsRequest {
+    string light_id = 1;
+    bool turn_on = 2;
+}
+
+message ControlMultipleLightsResponse {
+    bool success = 1;
+}

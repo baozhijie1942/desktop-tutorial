@@ -4,20 +4,21 @@
 package EmployeeService;
 
 /**
- * Protobuf type {@code employee.GetEmployeeSystemResponse}
+ * Protobuf type {@code EmployeeService.GetEmployeeResponse}
  */
-public  final class GetEmployeeSystemResponse extends
+public  final class GetEmployeeResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:employee.GetEmployeeSystemResponse)
-    GetEmployeeSystemResponseOrBuilder {
-  // Use GetEmployeeSystemResponse.newBuilder() to construct.
-  private GetEmployeeSystemResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // @@protoc_insertion_point(message_implements:EmployeeService.GetEmployeeResponse)
+    GetEmployeeResponseOrBuilder {
+  // Use GetEmployeeResponse.newBuilder() to construct.
+  private GetEmployeeResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private GetEmployeeSystemResponse() {
-    ename_ = "";
-    email_ = "";
-    ephone_ = "";
+  private GetEmployeeResponse() {
+    id_ = 0;
+    name_ = "";
+    age_ = 0;
+    department_ = "";
   }
 
   @Override
@@ -25,7 +26,7 @@ public  final class GetEmployeeSystemResponse extends
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
-  private GetEmployeeSystemResponse(
+  private GetEmployeeResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -45,22 +46,26 @@ public  final class GetEmployeeSystemResponse extends
             }
             break;
           }
-          case 10: {
-            String s = input.readStringRequireUtf8();
+          case 8: {
 
-            ename_ = s;
+            id_ = input.readInt32();
             break;
           }
           case 18: {
             String s = input.readStringRequireUtf8();
 
-            email_ = s;
+            name_ = s;
             break;
           }
-          case 26: {
+          case 24: {
+
+            age_ = input.readInt32();
+            break;
+          }
+          case 34: {
             String s = input.readStringRequireUtf8();
 
-            ephone_ = s;
+            department_ = s;
             break;
           }
         }
@@ -76,112 +81,96 @@ public  final class GetEmployeeSystemResponse extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return EmployeeServiceProto.internal_static_employee_GetEmployeeSystemResponse_descriptor;
+    return EmployeeServiceProto.internal_static_EmployeeService_GetEmployeeResponse_descriptor;
   }
 
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return EmployeeServiceProto.internal_static_employee_GetEmployeeSystemResponse_fieldAccessorTable
+    return EmployeeServiceProto.internal_static_EmployeeService_GetEmployeeResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            GetEmployeeSystemResponse.class, Builder.class);
+            GetEmployeeResponse.class, Builder.class);
   }
 
-  public static final int ENAME_FIELD_NUMBER = 1;
-  private volatile Object ename_;
+  public static final int ID_FIELD_NUMBER = 1;
+  private int id_;
   /**
-   * <code>string ename = 1;</code>
+   * <code>int32 id = 1;</code>
    */
-  public String getEname() {
-    Object ref = ename_;
+  public int getId() {
+    return id_;
+  }
+
+  public static final int NAME_FIELD_NUMBER = 2;
+  private volatile Object name_;
+  /**
+   * <code>string name = 2;</code>
+   */
+  public String getName() {
+    Object ref = name_;
     if (ref instanceof String) {
       return (String) ref;
     } else {
       com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
-      ename_ = s;
+      name_ = s;
       return s;
     }
   }
   /**
-   * <code>string ename = 1;</code>
+   * <code>string name = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getEnameBytes() {
-    Object ref = ename_;
+      getNameBytes() {
+    Object ref = name_;
     if (ref instanceof String) {
       com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
-      ename_ = b;
+      name_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int EMAIL_FIELD_NUMBER = 2;
-  private volatile Object email_;
+  public static final int AGE_FIELD_NUMBER = 3;
+  private int age_;
   /**
-   * <code>string email = 2;</code>
+   * <code>int32 age = 3;</code>
    */
-  public String getEmail() {
-    Object ref = email_;
-    if (ref instanceof String) {
-      return (String) ref;
-    } else {
-      com.google.protobuf.ByteString bs =
-          (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
-      email_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string email = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getEmailBytes() {
-    Object ref = email_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b =
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
-      email_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getAge() {
+    return age_;
   }
 
-  public static final int EPHONE_FIELD_NUMBER = 3;
-  private volatile Object ephone_;
+  public static final int DEPARTMENT_FIELD_NUMBER = 4;
+  private volatile Object department_;
   /**
-   * <code>string ephone = 3;</code>
+   * <code>string department = 4;</code>
    */
-  public String getEphone() {
-    Object ref = ephone_;
+  public String getDepartment() {
+    Object ref = department_;
     if (ref instanceof String) {
       return (String) ref;
     } else {
       com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
-      ephone_ = s;
+      department_ = s;
       return s;
     }
   }
   /**
-   * <code>string ephone = 3;</code>
+   * <code>string department = 4;</code>
    */
   public com.google.protobuf.ByteString
-      getEphoneBytes() {
-    Object ref = ephone_;
+      getDepartmentBytes() {
+    Object ref = department_;
     if (ref instanceof String) {
       com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
-      ephone_ = b;
+      department_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -200,14 +189,17 @@ public  final class GetEmployeeSystemResponse extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getEnameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, ename_);
+    if (id_ != 0) {
+      output.writeInt32(1, id_);
     }
-    if (!getEmailBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, email_);
+    if (!getNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
     }
-    if (!getEphoneBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, ephone_);
+    if (age_ != 0) {
+      output.writeInt32(3, age_);
+    }
+    if (!getDepartmentBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, department_);
     }
   }
 
@@ -216,14 +208,19 @@ public  final class GetEmployeeSystemResponse extends
     if (size != -1) return size;
 
     size = 0;
-    if (!getEnameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, ename_);
+    if (id_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(1, id_);
     }
-    if (!getEmailBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, email_);
+    if (!getNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
     }
-    if (!getEphoneBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, ephone_);
+    if (age_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, age_);
+    }
+    if (!getDepartmentBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, department_);
     }
     memoizedSize = size;
     return size;
@@ -235,18 +232,20 @@ public  final class GetEmployeeSystemResponse extends
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof GetEmployeeSystemResponse)) {
+    if (!(obj instanceof GetEmployeeResponse)) {
       return super.equals(obj);
     }
-    GetEmployeeSystemResponse other = (GetEmployeeSystemResponse) obj;
+    GetEmployeeResponse other = (GetEmployeeResponse) obj;
 
     boolean result = true;
-    result = result && getEname()
-        .equals(other.getEname());
-    result = result && getEmail()
-        .equals(other.getEmail());
-    result = result && getEphone()
-        .equals(other.getEphone());
+    result = result && (getId()
+        == other.getId());
+    result = result && getName()
+        .equals(other.getName());
+    result = result && (getAge()
+        == other.getAge());
+    result = result && getDepartment()
+        .equals(other.getDepartment());
     return result;
   }
 
@@ -257,80 +256,82 @@ public  final class GetEmployeeSystemResponse extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ENAME_FIELD_NUMBER;
-    hash = (53 * hash) + getEname().hashCode();
-    hash = (37 * hash) + EMAIL_FIELD_NUMBER;
-    hash = (53 * hash) + getEmail().hashCode();
-    hash = (37 * hash) + EPHONE_FIELD_NUMBER;
-    hash = (53 * hash) + getEphone().hashCode();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId();
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + AGE_FIELD_NUMBER;
+    hash = (53 * hash) + getAge();
+    hash = (37 * hash) + DEPARTMENT_FIELD_NUMBER;
+    hash = (53 * hash) + getDepartment().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static GetEmployeeSystemResponse parseFrom(
+  public static GetEmployeeResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static GetEmployeeSystemResponse parseFrom(
+  public static GetEmployeeResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static GetEmployeeSystemResponse parseFrom(
+  public static GetEmployeeResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static GetEmployeeSystemResponse parseFrom(
+  public static GetEmployeeResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static GetEmployeeSystemResponse parseFrom(byte[] data)
+  public static GetEmployeeResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static GetEmployeeSystemResponse parseFrom(
+  public static GetEmployeeResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static GetEmployeeSystemResponse parseFrom(java.io.InputStream input)
+  public static GetEmployeeResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static GetEmployeeSystemResponse parseFrom(
+  public static GetEmployeeResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static GetEmployeeSystemResponse parseDelimitedFrom(java.io.InputStream input)
+  public static GetEmployeeResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static GetEmployeeSystemResponse parseDelimitedFrom(
+  public static GetEmployeeResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static GetEmployeeSystemResponse parseFrom(
+  public static GetEmployeeResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static GetEmployeeSystemResponse parseFrom(
+  public static GetEmployeeResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -342,7 +343,7 @@ public  final class GetEmployeeSystemResponse extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(GetEmployeeSystemResponse prototype) {
+  public static Builder newBuilder(GetEmployeeResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -357,25 +358,25 @@ public  final class GetEmployeeSystemResponse extends
     return builder;
   }
   /**
-   * Protobuf type {@code employee.GetEmployeeSystemResponse}
+   * Protobuf type {@code EmployeeService.GetEmployeeResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:employee.GetEmployeeSystemResponse)
-      GetEmployeeSystemResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:EmployeeService.GetEmployeeResponse)
+      GetEmployeeResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return EmployeeServiceProto.internal_static_employee_GetEmployeeSystemResponse_descriptor;
+      return EmployeeServiceProto.internal_static_EmployeeService_GetEmployeeResponse_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return EmployeeServiceProto.internal_static_employee_GetEmployeeSystemResponse_fieldAccessorTable
+      return EmployeeServiceProto.internal_static_EmployeeService_GetEmployeeResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              GetEmployeeSystemResponse.class, Builder.class);
+              GetEmployeeResponse.class, Builder.class);
     }
 
-    // Construct using EmployeeService.GetEmployeeSystemResponse.newBuilder()
+    // Construct using EmployeeService.GetEmployeeResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -392,37 +393,40 @@ public  final class GetEmployeeSystemResponse extends
     }
     public Builder clear() {
       super.clear();
-      ename_ = "";
+      id_ = 0;
 
-      email_ = "";
+      name_ = "";
 
-      ephone_ = "";
+      age_ = 0;
+
+      department_ = "";
 
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return EmployeeServiceProto.internal_static_employee_GetEmployeeSystemResponse_descriptor;
+      return EmployeeServiceProto.internal_static_EmployeeService_GetEmployeeResponse_descriptor;
     }
 
-    public GetEmployeeSystemResponse getDefaultInstanceForType() {
-      return GetEmployeeSystemResponse.getDefaultInstance();
+    public GetEmployeeResponse getDefaultInstanceForType() {
+      return GetEmployeeResponse.getDefaultInstance();
     }
 
-    public GetEmployeeSystemResponse build() {
-      GetEmployeeSystemResponse result = buildPartial();
+    public GetEmployeeResponse build() {
+      GetEmployeeResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public GetEmployeeSystemResponse buildPartial() {
-      GetEmployeeSystemResponse result = new GetEmployeeSystemResponse(this);
-      result.ename_ = ename_;
-      result.email_ = email_;
-      result.ephone_ = ephone_;
+    public GetEmployeeResponse buildPartial() {
+      GetEmployeeResponse result = new GetEmployeeResponse(this);
+      result.id_ = id_;
+      result.name_ = name_;
+      result.age_ = age_;
+      result.department_ = department_;
       onBuilt();
       return result;
     }
@@ -454,26 +458,28 @@ public  final class GetEmployeeSystemResponse extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof GetEmployeeSystemResponse) {
-        return mergeFrom((GetEmployeeSystemResponse)other);
+      if (other instanceof GetEmployeeResponse) {
+        return mergeFrom((GetEmployeeResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(GetEmployeeSystemResponse other) {
-      if (other == GetEmployeeSystemResponse.getDefaultInstance()) return this;
-      if (!other.getEname().isEmpty()) {
-        ename_ = other.ename_;
+    public Builder mergeFrom(GetEmployeeResponse other) {
+      if (other == GetEmployeeResponse.getDefaultInstance()) return this;
+      if (other.getId() != 0) {
+        setId(other.getId());
+      }
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
         onChanged();
       }
-      if (!other.getEmail().isEmpty()) {
-        email_ = other.email_;
-        onChanged();
+      if (other.getAge() != 0) {
+        setAge(other.getAge());
       }
-      if (!other.getEphone().isEmpty()) {
-        ephone_ = other.ephone_;
+      if (!other.getDepartment().isEmpty()) {
+        department_ = other.department_;
         onChanged();
       }
       onChanged();
@@ -488,11 +494,11 @@ public  final class GetEmployeeSystemResponse extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      GetEmployeeSystemResponse parsedMessage = null;
+      GetEmployeeResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (GetEmployeeSystemResponse) e.getUnfinishedMessage();
+        parsedMessage = (GetEmployeeResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -502,209 +508,192 @@ public  final class GetEmployeeSystemResponse extends
       return this;
     }
 
-    private Object ename_ = "";
+    private int id_ ;
     /**
-     * <code>string ename = 1;</code>
+     * <code>int32 id = 1;</code>
      */
-    public String getEname() {
-      Object ref = ename_;
+    public int getId() {
+      return id_;
+    }
+    /**
+     * <code>int32 id = 1;</code>
+     */
+    public Builder setId(int value) {
+
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 id = 1;</code>
+     */
+    public Builder clearId() {
+
+      id_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private Object name_ = "";
+    /**
+     * <code>string name = 2;</code>
+     */
+    public String getName() {
+      Object ref = name_;
       if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
-        ename_ = s;
+        name_ = s;
         return s;
       } else {
         return (String) ref;
       }
     }
     /**
-     * <code>string ename = 1;</code>
+     * <code>string name = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getEnameBytes() {
-      Object ref = ename_;
+        getNameBytes() {
+      Object ref = name_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
-        ename_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string ename = 1;</code>
+     * <code>string name = 2;</code>
      */
-    public Builder setEname(
+    public Builder setName(
         String value) {
       if (value == null) {
     throw new NullPointerException();
   }
 
-      ename_ = value;
+      name_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string ename = 1;</code>
+     * <code>string name = 2;</code>
      */
-    public Builder clearEname() {
+    public Builder clearName() {
 
-      ename_ = getDefaultInstance().getEname();
+      name_ = getDefaultInstance().getName();
       onChanged();
       return this;
     }
     /**
-     * <code>string ename = 1;</code>
+     * <code>string name = 2;</code>
      */
-    public Builder setEnameBytes(
+    public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
 
-      ename_ = value;
+      name_ = value;
       onChanged();
       return this;
     }
 
-    private Object email_ = "";
+    private int age_ ;
     /**
-     * <code>string email = 2;</code>
+     * <code>int32 age = 3;</code>
      */
-    public String getEmail() {
-      Object ref = email_;
+    public int getAge() {
+      return age_;
+    }
+    /**
+     * <code>int32 age = 3;</code>
+     */
+    public Builder setAge(int value) {
+
+      age_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 age = 3;</code>
+     */
+    public Builder clearAge() {
+
+      age_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private Object department_ = "";
+    /**
+     * <code>string department = 4;</code>
+     */
+    public String getDepartment() {
+      Object ref = department_;
       if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
-        email_ = s;
+        department_ = s;
         return s;
       } else {
         return (String) ref;
       }
     }
     /**
-     * <code>string email = 2;</code>
+     * <code>string department = 4;</code>
      */
     public com.google.protobuf.ByteString
-        getEmailBytes() {
-      Object ref = email_;
+        getDepartmentBytes() {
+      Object ref = department_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
-        email_ = b;
+        department_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string email = 2;</code>
+     * <code>string department = 4;</code>
      */
-    public Builder setEmail(
+    public Builder setDepartment(
         String value) {
       if (value == null) {
     throw new NullPointerException();
   }
 
-      email_ = value;
+      department_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string email = 2;</code>
+     * <code>string department = 4;</code>
      */
-    public Builder clearEmail() {
+    public Builder clearDepartment() {
 
-      email_ = getDefaultInstance().getEmail();
+      department_ = getDefaultInstance().getDepartment();
       onChanged();
       return this;
     }
     /**
-     * <code>string email = 2;</code>
+     * <code>string department = 4;</code>
      */
-    public Builder setEmailBytes(
+    public Builder setDepartmentBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
 
-      email_ = value;
-      onChanged();
-      return this;
-    }
-
-    private Object ephone_ = "";
-    /**
-     * <code>string ephone = 3;</code>
-     */
-    public String getEphone() {
-      Object ref = ephone_;
-      if (!(ref instanceof String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        ephone_ = s;
-        return s;
-      } else {
-        return (String) ref;
-      }
-    }
-    /**
-     * <code>string ephone = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getEphoneBytes() {
-      Object ref = ephone_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        ephone_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string ephone = 3;</code>
-     */
-    public Builder setEphone(
-        String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-
-      ephone_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string ephone = 3;</code>
-     */
-    public Builder clearEphone() {
-
-      ephone_ = getDefaultInstance().getEphone();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string ephone = 3;</code>
-     */
-    public Builder setEphoneBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-
-      ephone_ = value;
+      department_ = value;
       onChanged();
       return this;
     }
@@ -719,39 +708,39 @@ public  final class GetEmployeeSystemResponse extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:employee.GetEmployeeSystemResponse)
+    // @@protoc_insertion_point(builder_scope:EmployeeService.GetEmployeeResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:employee.GetEmployeeSystemResponse)
-  private static final GetEmployeeSystemResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:EmployeeService.GetEmployeeResponse)
+  private static final GetEmployeeResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new GetEmployeeSystemResponse();
+    DEFAULT_INSTANCE = new GetEmployeeResponse();
   }
 
-  public static GetEmployeeSystemResponse getDefaultInstance() {
+  public static GetEmployeeResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<GetEmployeeSystemResponse>
-      PARSER = new com.google.protobuf.AbstractParser<GetEmployeeSystemResponse>() {
-    public GetEmployeeSystemResponse parsePartialFrom(
+  private static final com.google.protobuf.Parser<GetEmployeeResponse>
+      PARSER = new com.google.protobuf.AbstractParser<GetEmployeeResponse>() {
+    public GetEmployeeResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetEmployeeSystemResponse(input, extensionRegistry);
+        return new GetEmployeeResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<GetEmployeeSystemResponse> parser() {
+  public static com.google.protobuf.Parser<GetEmployeeResponse> parser() {
     return PARSER;
   }
 
   @Override
-  public com.google.protobuf.Parser<GetEmployeeSystemResponse> getParserForType() {
+  public com.google.protobuf.Parser<GetEmployeeResponse> getParserForType() {
     return PARSER;
   }
 
-  public GetEmployeeSystemResponse getDefaultInstanceForType() {
+  public GetEmployeeResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

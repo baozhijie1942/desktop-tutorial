@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "PrinterService";
+option java_outer_classname = "PrinterProto";
+package printer;
+
+service PrinterService {
+    rpc PrintDocument (PrintDocumentRequest) returns (PrintDocumentResponse);
+    rpc ListPrintJobs (ListPrintJobsRequest) returns (stream ListPrintJobsResponse);
+    rpc CancelPrintJob (CancelPrintJobRequest) returns (CancelPrintJobResponse);
+}
+
+message PrintDocumentRequest {
+    string document_url = 1;
+}
+
+message PrintDocumentResponse {
+    bool success = 1;
+}
+
+message ListPrintJobsRequest {}
+
+message ListPrintJobsResponse {
+    string document_url = 1;
+    int32 pages = 2;
+}
+
+message CancelPrintJobRequest {
+    string document_url = 1;
+}
+
+message CancelPrintJobResponse {
+    bool success = 1;
+}

@@ -15,35 +15,40 @@ public final class EmployeeServiceProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_employee_GetEmployeeSystemRequest_descriptor;
+    internal_static_EmployeeService_AddEmployeeRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_employee_GetEmployeeSystemRequest_fieldAccessorTable;
+      internal_static_EmployeeService_AddEmployeeRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_employee_GetEmployeeSystemResponse_descriptor;
+    internal_static_EmployeeService_AddEmployeeResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_employee_GetEmployeeSystemResponse_fieldAccessorTable;
+      internal_static_EmployeeService_AddEmployeeResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_employee_ListEmployeesSystemRequest_descriptor;
+    internal_static_EmployeeService_GetEmployeeRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_employee_ListEmployeesSystemRequest_fieldAccessorTable;
+      internal_static_EmployeeService_GetEmployeeRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_employee_ListEmployeesSystemResponse_descriptor;
+    internal_static_EmployeeService_GetEmployeeResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_employee_ListEmployeesSystemResponse_fieldAccessorTable;
+      internal_static_EmployeeService_GetEmployeeResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_employee_UpdatingEmployeeInformationRequest_descriptor;
+    internal_static_EmployeeService_UpdateEmployeeRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_employee_UpdatingEmployeeInformationRequest_fieldAccessorTable;
+      internal_static_EmployeeService_UpdateEmployeeRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_employee_UpdatingEmployeeInformationResponse_descriptor;
+    internal_static_EmployeeService_UpdateEmployeeResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_employee_UpdatingEmployeeInformationResponse_fieldAccessorTable;
+      internal_static_EmployeeService_UpdateEmployeeResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_EmployeeService_Employee_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_EmployeeService_Employee_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -53,26 +58,27 @@ public final class EmployeeServiceProto {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\025EmployeeService.proto\022\010employee\"\'\n\030Get" +
-      "EmployeeSystemRequest\022\013\n\003eid\030\001 \001(\t\"I\n\031Ge" +
-      "tEmployeeSystemResponse\022\r\n\005ename\030\001 \001(\t\022\r" +
-      "\n\005email\030\002 \001(\t\022\016\n\006ephone\030\003 \001(\t\"\034\n\032ListEmp" +
-      "loyeesSystemRequest\"8\n\033ListEmployeesSyst" +
-      "emResponse\022\013\n\003eid\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\"R\n" +
-      "\"UpdatingEmployeeInformationRequest\022\013\n\003e" +
-      "id\030\001 \001(\t\022\016\n\006nemail\030\002 \001(\t\022\017\n\007nephone\030\003 \001(" +
-      "\t\"6\n#UpdatingEmployeeInformationResponse" +
-      "\022\017\n\007success\030\001 \001(\0102\324\002\n\017EmployeeService\022^\n",
-      "\021GetEmployeeSystem\022\".employee.GetEmploye" +
-      "eSystemRequest\032#.employee.GetEmployeeSys" +
-      "temResponse\"\000\022f\n\023ListEmployeesSystem\022$.e" +
-      "mployee.ListEmployeesSystemRequest\032%.emp" +
-      "loyee.ListEmployeesSystemResponse\"\0000\001\022y\n" +
-      "\024UpdateEmployeeSystem\022,.employee.Updatin" +
-      "gEmployeeInformationRequest\032-.employee.U" +
-      "pdatingEmployeeInformationResponse\"\000(\0010\001" +
-      "B)\n\017EmployeeServiceB\024EmployeeServiceProt" +
-      "oP\001b\006proto3"
+      "\n\025EmployeeService.proto\022\017EmployeeService" +
+      "\"O\n\022AddEmployeeRequest\022\n\n\002id\030\001 \001(\005\022\014\n\004na" +
+      "me\030\002 \001(\t\022\013\n\003age\030\003 \001(\005\022\022\n\ndepartment\030\004 \001(" +
+      "\t\"!\n\023AddEmployeeResponse\022\n\n\002id\030\001 \001(\005\" \n\022" +
+      "GetEmployeeRequest\022\n\n\002id\030\001 \001(\005\"P\n\023GetEmp" +
+      "loyeeResponse\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022" +
+      "\013\n\003age\030\003 \001(\005\022\022\n\ndepartment\030\004 \001(\t\"P\n\025Upda" +
+      "teEmployeeRequest\022\n\n\002id\030\001 \001(\005\022+\n\010employe" +
+      "e\030\002 \001(\0132\031.EmployeeService.Employee\")\n\026Up" +
+      "dateEmployeeResponse\022\017\n\007success\030\001 \001(\010\"E\n",
+      "\010Employee\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\013\n\003a" +
+      "ge\030\003 \001(\005\022\022\n\ndepartment\030\004 \001(\t2\262\002\n\017Employe" +
+      "eService\022Z\n\013AddEmployee\022#.EmployeeServic" +
+      "e.AddEmployeeRequest\032$.EmployeeService.A" +
+      "ddEmployeeResponse\"\000\022Z\n\013GetEmployee\022#.Em" +
+      "ployeeService.GetEmployeeRequest\032$.Emplo" +
+      "yeeService.GetEmployeeResponse\"\000\022g\n\016Upda" +
+      "teEmployee\022&.EmployeeService.UpdateEmplo" +
+      "yeeRequest\032\'.EmployeeService.UpdateEmplo" +
+      "yeeResponse\"\000(\0010\001B)\n\017EmployeeServiceB\024Em",
+      "ployeeServiceProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -86,42 +92,48 @@ public final class EmployeeServiceProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_employee_GetEmployeeSystemRequest_descriptor =
+    internal_static_EmployeeService_AddEmployeeRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_employee_GetEmployeeSystemRequest_fieldAccessorTable = new
+    internal_static_EmployeeService_AddEmployeeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_employee_GetEmployeeSystemRequest_descriptor,
-        new String[] { "Eid", });
-    internal_static_employee_GetEmployeeSystemResponse_descriptor =
+        internal_static_EmployeeService_AddEmployeeRequest_descriptor,
+        new String[] { "Id", "Name", "Age", "Department", });
+    internal_static_EmployeeService_AddEmployeeResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_employee_GetEmployeeSystemResponse_fieldAccessorTable = new
+    internal_static_EmployeeService_AddEmployeeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_employee_GetEmployeeSystemResponse_descriptor,
-        new String[] { "Ename", "Email", "Ephone", });
-    internal_static_employee_ListEmployeesSystemRequest_descriptor =
+        internal_static_EmployeeService_AddEmployeeResponse_descriptor,
+        new String[] { "Id", });
+    internal_static_EmployeeService_GetEmployeeRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_employee_ListEmployeesSystemRequest_fieldAccessorTable = new
+    internal_static_EmployeeService_GetEmployeeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_employee_ListEmployeesSystemRequest_descriptor,
-        new String[] { });
-    internal_static_employee_ListEmployeesSystemResponse_descriptor =
+        internal_static_EmployeeService_GetEmployeeRequest_descriptor,
+        new String[] { "Id", });
+    internal_static_EmployeeService_GetEmployeeResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_employee_ListEmployeesSystemResponse_fieldAccessorTable = new
+    internal_static_EmployeeService_GetEmployeeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_employee_ListEmployeesSystemResponse_descriptor,
-        new String[] { "Eid", "Name", });
-    internal_static_employee_UpdatingEmployeeInformationRequest_descriptor =
+        internal_static_EmployeeService_GetEmployeeResponse_descriptor,
+        new String[] { "Id", "Name", "Age", "Department", });
+    internal_static_EmployeeService_UpdateEmployeeRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_employee_UpdatingEmployeeInformationRequest_fieldAccessorTable = new
+    internal_static_EmployeeService_UpdateEmployeeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_employee_UpdatingEmployeeInformationRequest_descriptor,
-        new String[] { "Eid", "Nemail", "Nephone", });
-    internal_static_employee_UpdatingEmployeeInformationResponse_descriptor =
+        internal_static_EmployeeService_UpdateEmployeeRequest_descriptor,
+        new String[] { "Id", "Employee", });
+    internal_static_EmployeeService_UpdateEmployeeResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_employee_UpdatingEmployeeInformationResponse_fieldAccessorTable = new
+    internal_static_EmployeeService_UpdateEmployeeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_employee_UpdatingEmployeeInformationResponse_descriptor,
+        internal_static_EmployeeService_UpdateEmployeeResponse_descriptor,
         new String[] { "Success", });
+    internal_static_EmployeeService_Employee_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_EmployeeService_Employee_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_EmployeeService_Employee_descriptor,
+        new String[] { "Id", "Name", "Age", "Department", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
