@@ -69,6 +69,12 @@ public class EmployeeServiceClientGUI {
     }
 
     public void createAndShowGUI() {
+        Font defaultFont = new Font(Font.SANS_SERIF, Font.PLAIN, 26); // 修改字体为 Sans-serif 且大小为 16
+        UIManager.put("Button.font", defaultFont);
+        UIManager.put("CheckBox.font", defaultFont);
+        UIManager.put("Label.font", defaultFont);
+        UIManager.put("TextField.font", defaultFont);
+        UIManager.put("TextArea.font", defaultFont);
         JFrame frame = new JFrame("Employee Service Client");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 400);
