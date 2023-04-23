@@ -8,23 +8,23 @@ import io.grpc.ServerBuilder;
 import io.grpc.Status;
 import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
+
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetAddress;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-
-import EmployeeService.EmployeeServiceGrpc;
-import EmployeeService.EmployeeServiceProto.*;
 
 public class EmployeeServiceServer {
 
     private Server server;
-    private final ConcurrentMap<Integer, Employee> employeeMap = new ConcurrentHashMap<>();
     private JmDNS jmdns;
+    private final ConcurrentMap<Integer, Employee> employeeMap = new ConcurrentHashMap<>();
+    private Properties prop;
 
     public static void main(String[] args) throws IOException, InterruptedException {
         EmployeeServiceServer server = new EmployeeServiceServer();
@@ -33,7 +33,9 @@ public class EmployeeServiceServer {
     }
 
     private void start() throws IOException {
-        int port = 8080;
+        prop = getProperties();
+
+        int port = Integer.valueOf(prop.getProperty("service_port"));
 
         server = ServerBuilder.forPort(port)
                 .addService(new EmployeeServiceImpl())
@@ -42,15 +44,15 @@ public class EmployeeServiceServer {
 
         // Registration
         jmdns = JmDNS.create(InetAddress.getLocalHost());
-        ServiceInfo serviceInfo = ServiceInfo.create("_employee._tcp.local.", "EmployeeService", port, "");
+        ServiceInfo serviceInfo = ServiceInfo.create(prop.getProperty("service_type"), prop.getProperty("service_name"), port, "");
         jmdns.registerService(serviceInfo);
 
-        System.out.println("EmployeeServiceServer and JMDNS is started, listening on " + port);
+        System.out.println(prop.getProperty("service_name") + " Server and JmDNS started, listening on " + port);
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("*** shutting down gRPC server since JVM is shutting down");
+            System.out.println("*** Shutting down gRPC server since JVM is shutting down");
             EmployeeServiceServer.this.stop();
-            System.out.println("*** server shut down");
+            System.out.println("*** Server shut down");
         }));
     }
 
@@ -59,6 +61,7 @@ public class EmployeeServiceServer {
             server.shutdown();
         }
         if (jmdns != null) {
+            jmdns.unregisterAllServices();
             try {
                 jmdns.close();
             } catch (IOException e) {
@@ -71,6 +74,25 @@ public class EmployeeServiceServer {
         if (server != null) {
             server.awaitTermination();
         }
+    }
+
+    private Properties getProperties() {
+        Properties prop = null;
+
+        try (InputStream input = new FileInputStream("src/main/resources/employee.properties")) {
+            prop = new Properties();
+            prop.load(input);
+            System.out.println(prop.getProperty("service_name") + " Service properties...");
+            System.out.println("\t Service type: " + prop.getProperty("service_type"));
+            System.out.println("\t Service name: " + prop.getProperty("service_name"));
+            System.out.println("\t Service description: " + prop.getProperty("service_description"));
+            System.out.println("\t Service port: " + prop.getProperty("service_port"));
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        return prop;
     }
 
     private class EmployeeServiceImpl extends EmployeeServiceGrpc.EmployeeServiceImplBase {
@@ -103,7 +125,6 @@ public class EmployeeServiceServer {
         public void getEmployee(GetEmployeeRequest request, StreamObserver<GetEmployeeResponse> responseObserver) {
             int id = request.getId();
             Employee employee = employeeMap.get(id);
-
             if (employee == null) {
                 responseObserver.onError(new StatusRuntimeException(Status.NOT_FOUND.withDescription("Employee not found")));
             } else {
@@ -152,6 +173,6 @@ public class EmployeeServiceServer {
                 }
             };
         }
-    }}
+    }
 
-// Add other methods here for authentication, error handling, and cancellation.
+}

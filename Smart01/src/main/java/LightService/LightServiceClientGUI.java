@@ -26,7 +26,7 @@ public class LightServiceClientGUI {
         JmDNS jmdns;
         try {
             jmdns = JmDNS.create(InetAddress.getLocalHost());
-            jmdns.addServiceListener("_grpc._tcp.local.", new ServiceListener() {
+            jmdns.addServiceListener("_light._tcp.local.", new ServiceListener() {
                 @Override
                 public void serviceAdded(ServiceEvent event) {
                     System.out.println("Service added: " + event.getInfo());
@@ -83,9 +83,9 @@ public class LightServiceClientGUI {
                 ControlLightResponse response;
                 try {
                     response = blockingStub.controlLight(request);
-                    JOptionPane.showMessageDialog(frame, "Success: " + response.getSuccess());
+                    JOptionPane.showMessageDialog(null, "Success: " + response.getSuccess());
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(frame, "Error: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
                 }
             }
         });
@@ -110,9 +110,9 @@ public class LightServiceClientGUI {
                     for (Light light : response.getLightsList()) {
                         lightStates.add("Light ID: " + light.getId() + ", State: " + (light.getIsOn() ? "On" : "Off"));
                     }
-                    JOptionPane.showMessageDialog(frame, String.join("\n", lightStates));
+                    JOptionPane.showMessageDialog(null, String.join("\n", lightStates));
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(frame, "Error: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
                 }
             }
         });
@@ -137,12 +137,12 @@ public class LightServiceClientGUI {
                 StreamObserver<ControlMultipleLightsResponse> responseObserver = new StreamObserver<ControlMultipleLightsResponse>() {
                     @Override
                     public void onNext(ControlMultipleLightsResponse response) {
-                        JOptionPane.showMessageDialog(frame, "Success: " + response.getSuccess());
+                        JOptionPane.showMessageDialog(null, "Success: " + response.getSuccess());
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        JOptionPane.showMessageDialog(frame, "Error: " + t.getMessage());
+                        JOptionPane.showMessageDialog(null, "Error: " + t.getMessage());
                     }
 
                     @Override
