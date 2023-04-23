@@ -28,7 +28,7 @@ import LightService.LightServiceGrpc;
 public class LightServiceServer {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        int port = 50051;
+        int port = 9999;
 
         // 创建并启动 gRPC 服务器
         Server server = ServerBuilder.forPort(port).addService(new LightServiceImpl()).build().start();

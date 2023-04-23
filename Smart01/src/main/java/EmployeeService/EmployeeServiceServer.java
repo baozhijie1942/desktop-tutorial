@@ -33,7 +33,7 @@ public class EmployeeServiceServer {
     }
 
     private void start() throws IOException {
-        int port = 50051;
+        int port = 8080;
 
         server = ServerBuilder.forPort(port)
                 .addService(new EmployeeServiceImpl())
