@@ -90,10 +90,10 @@ public class LightServiceClientGUI {
         // 子系统1: 控制一个灯的开/关状态
         JPanel controlLightPanel = new JPanel();
         contentPane.add(controlLightPanel);
-        controlLightPanel.add(new JLabel("Light ID:"));
+        controlLightPanel.add(new JLabel("SET ROOM Light State By RoomID:"));
         JTextField controlLightIdField = new JTextField(10);
         controlLightPanel.add(controlLightIdField);
-        JCheckBox controlLightTurnOnCheckBox = new JCheckBox("Turn On");
+        JCheckBox controlLightTurnOnCheckBox = new JCheckBox("Turn On is choice/Turn OFF is not choice");
         controlLightPanel.add(controlLightTurnOnCheckBox);
         JButton controlLightButton = new JButton("Control Light");
         controlLightPanel.add(controlLightButton);
@@ -107,9 +107,9 @@ public class LightServiceClientGUI {
                 ControlLightResponse response;
                 try {
                     response = blockingStub.controlLight(request);
-                    JOptionPane.showMessageDialog(null, "Success: " + response.getSuccess());
+                    JOptionPane.showMessageDialog(null, "Success the set" );
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(null, "Failed the set" );
                 }
             }
         });
@@ -120,7 +120,7 @@ public class LightServiceClientGUI {
         getRoomLightsPanel.add(new JLabel("Room ID:"));
         JTextField getRoomIdField = new JTextField(10);
         getRoomLightsPanel.add(getRoomIdField);
-        JButton getRoomLightsButton = new JButton("Get Room Lights");
+        JButton getRoomLightsButton = new JButton("Get Room Lights State");
         getRoomLightsPanel.add(getRoomLightsButton);
         getRoomLightsButton.addActionListener(new ActionListener() {
             @Override
@@ -144,10 +144,10 @@ public class LightServiceClientGUI {
         // 子系统3: 控制多个灯的开/关状态
         JPanel controlMultipleLightsPanel = new JPanel();
         contentPane.add(controlMultipleLightsPanel);
-        controlMultipleLightsPanel.add(new JLabel("Light IDs (comma-separated):"));
+        controlMultipleLightsPanel.add(new JLabel("SET Room Lights (comma-separated):"));
         JTextField controlMultipleLightsIdField = new JTextField(10);
         controlMultipleLightsPanel.add(controlMultipleLightsIdField);
-        JCheckBox controlMultipleLightsTurnOnCheckBox = new JCheckBox("Turn On");
+        JCheckBox controlMultipleLightsTurnOnCheckBox = new JCheckBox("Turn On is choice/Turn OFF is not choice");
         controlMultipleLightsPanel.add(controlMultipleLightsTurnOnCheckBox);
         JButton controlMultipleLightsButton = new JButton("Control Multiple Lights");
         controlMultipleLightsPanel.add(controlMultipleLightsButton);
@@ -161,12 +161,12 @@ public class LightServiceClientGUI {
                 StreamObserver<ControlMultipleLightsResponse> responseObserver = new StreamObserver<ControlMultipleLightsResponse>() {
                     @Override
                     public void onNext(ControlMultipleLightsResponse response) {
-                        JOptionPane.showMessageDialog(null, "Success: " + response.getSuccess());
+                        JOptionPane.showMessageDialog(null, "Success to set");
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        JOptionPane.showMessageDialog(null, "Error: " + t.getMessage());
+                        JOptionPane.showMessageDialog(null, "Failed to set");
                     }
 
                     @Override

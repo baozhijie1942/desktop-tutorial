@@ -149,7 +149,7 @@ public class PrinterServiceGUI {
             try {
                 PrintDocumentResponse response = blockingStub.printDocument(request);
                 if (response.getSuccess()) {
-                    JOptionPane.showMessageDialog(null, "Document printed successfully.");
+                    JOptionPane.showMessageDialog(null, "Add Print Document URL successfully.");
                 } else {
                     JOptionPane.showMessageDialog(null, "Failed to print document.");
                 }
@@ -167,7 +167,8 @@ public class PrinterServiceGUI {
         try {
             StringBuilder printJobs = new StringBuilder();
             blockingStub.listPrintJobs(request).forEachRemaining(response -> {
-                printJobs.append("URL: ").append(response.getDocumentUrl()).append(", Pages: ").append(response.getPages()).append("\n");
+                printJobs.append("URL: ").append(response.getDocumentUrl()).append("\n");
+                // printJobs.append("URL: ").append(response.getDocumentUrl()).append(", Pages: ").append(response.getPages()).append("\n");
             });
 
             if (printJobs.length() > 0) {

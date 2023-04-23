@@ -107,7 +107,7 @@ public class EmployeeServiceClientGUI {
                 AddEmployeeResponse response = addEmployee(id, name, age, department);
                 disconnectFromServer();
 
-                JOptionPane.showMessageDialog(frame, "Employee added with ID: " + response.getId());
+                JOptionPane.showMessageDialog(frame, "Employee added with ID: " + response.getId()+" is Successful");
             }
         });
 
@@ -127,9 +127,9 @@ public class EmployeeServiceClientGUI {
                 disconnectFromServer();
 
                 if (success) {
-                    JOptionPane.showMessageDialog(frame, "Employee updated");
+                    JOptionPane.showMessageDialog(frame, "Employee updated Successful");
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Employee not found");
+                    JOptionPane.showMessageDialog(frame, "Employee's ID is not found");
                 }
             }
         });
