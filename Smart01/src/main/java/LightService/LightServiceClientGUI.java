@@ -90,7 +90,7 @@ public class LightServiceClientGUI {
         // 子系统1: 控制一个灯的开/关状态
         JPanel controlLightPanel = new JPanel();
         contentPane.add(controlLightPanel);
-        controlLightPanel.add(new JLabel("SET ROOM Light State By RoomID:"));
+        controlLightPanel.add(new JLabel("Set LightID State (Room-Light):"));
         JTextField controlLightIdField = new JTextField(10);
         controlLightPanel.add(controlLightIdField);
         JCheckBox controlLightTurnOnCheckBox = new JCheckBox("Turn On is choice/Turn OFF is not choice");
@@ -120,7 +120,7 @@ public class LightServiceClientGUI {
         getRoomLightsPanel.add(new JLabel("Room ID:"));
         JTextField getRoomIdField = new JTextField(10);
         getRoomLightsPanel.add(getRoomIdField);
-        JButton getRoomLightsButton = new JButton("Get Room Lights State");
+        JButton getRoomLightsButton = new JButton("Get Room ALL The Lights State");
         getRoomLightsPanel.add(getRoomLightsButton);
         getRoomLightsButton.addActionListener(new ActionListener() {
             @Override
@@ -144,7 +144,7 @@ public class LightServiceClientGUI {
         // 子系统3: 控制多个灯的开/关状态
         JPanel controlMultipleLightsPanel = new JPanel();
         contentPane.add(controlMultipleLightsPanel);
-        controlMultipleLightsPanel.add(new JLabel("SET Room Lights (comma-separated):"));
+        controlMultipleLightsPanel.add(new JLabel("Set the Room Lights (comma-separated):"));
         JTextField controlMultipleLightsIdField = new JTextField(10);
         controlMultipleLightsPanel.add(controlMultipleLightsIdField);
         JCheckBox controlMultipleLightsTurnOnCheckBox = new JCheckBox("Turn On is choice/Turn OFF is not choice");
