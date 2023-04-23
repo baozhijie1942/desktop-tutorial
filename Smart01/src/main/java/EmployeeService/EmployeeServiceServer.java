@@ -27,6 +27,7 @@ public class EmployeeServiceServer {
     private Properties prop;
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        System.setProperty("logback.configurationFile", "logback.xml");
         EmployeeServiceServer server = new EmployeeServiceServer();
         server.start();
         server.blockUntilShutdown();

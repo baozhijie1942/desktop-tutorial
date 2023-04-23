@@ -4,10 +4,13 @@ package EmployeeService;
 
 import EmployeeService.EmployeeServiceGrpc;
 import EmployeeService.EmployeeServiceProto.*;
+import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.classic.joran.JoranConfigurator;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
+import org.slf4j.LoggerFactory;
 
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceEvent;
@@ -19,6 +22,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.URL;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -31,6 +35,7 @@ public class EmployeeServiceClientGUI {
     private int port;
 
     public static void main(String[] args) throws IOException {
+
         EmployeeServiceClientGUI clientGUI = new EmployeeServiceClientGUI();
         clientGUI.discoverService();
         SwingUtilities.invokeLater(clientGUI::createAndShowGUI);
@@ -55,6 +60,10 @@ public class EmployeeServiceClientGUI {
 
             @Override
             public void serviceResolved(ServiceEvent event) {
+                System.out.println("Service resolved: " + event.getInfo());
+                System.out.println("Service host: " + event.getInfo().getHostAddress());
+                System.out.println("Service port: " + event.getInfo().getPort());
+                System.out.println("JMDNS Service INFO: " + event.getInfo());
             }
         });
     }

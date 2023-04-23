@@ -1,9 +1,12 @@
 package LightService;
 
 
+import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.classic.joran.JoranConfigurator;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
+import org.slf4j.LoggerFactory;
 
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceEvent;
@@ -14,6 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +25,19 @@ public class LightServiceClientGUI {
 
     private static LightServiceGrpc.LightServiceBlockingStub blockingStub;
     private static LightServiceGrpc.LightServiceStub asyncStub;
-
+    private static boolean guiCreated = false;
     public static void main(String[] args) {
+        LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
+        loggerContext.reset();
+        JoranConfigurator configurator = new JoranConfigurator();
+        configurator.setContext(loggerContext);
+        URL logbackConfigFile = Thread.currentThread().getContextClassLoader().getResource("logback.xml");
+
         JmDNS jmdns;
         try {
             jmdns = JmDNS.create(InetAddress.getLocalHost());
             jmdns.addServiceListener("_light._tcp.local.", new ServiceListener() {
+
                 @Override
                 public void serviceAdded(ServiceEvent event) {
                     System.out.println("Service added: " + event.getInfo());
@@ -40,14 +51,21 @@ public class LightServiceClientGUI {
                 @Override
                 public void serviceResolved(ServiceEvent event) {
                     System.out.println("Service resolved: " + event.getInfo());
+                    System.out.println("Service host: " + event.getInfo().getHostAddress());
+                    System.out.println("Service port: " + event.getInfo().getPort());
+                    System.out.println("JMDNS Service INFO: " + event.getInfo());
                     ManagedChannel channel = ManagedChannelBuilder.forAddress(event.getInfo().getHostAddresses()[0], event.getInfo().getPort())
                             .usePlaintext()
                             .build();
 
                     blockingStub = LightServiceGrpc.newBlockingStub(channel);
                     asyncStub = LightServiceGrpc.newStub(channel);
+                    if (!guiCreated) {
+                        // create and show GUI
+                        createAndShowGUI();
+                        guiCreated = true;
+                    }
 
-                    createAndShowGUI();
                 }
             });
         } catch (IOException e) {
@@ -56,6 +74,12 @@ public class LightServiceClientGUI {
     }
 
     private static void createAndShowGUI() {
+        Font defaultFont = new Font(Font.SANS_SERIF, Font.PLAIN, 26); // 修改字体为 Sans-serif 且大小为 16
+        UIManager.put("Button.font", defaultFont);
+        UIManager.put("CheckBox.font", defaultFont);
+        UIManager.put("Label.font", defaultFont);
+        UIManager.put("TextField.font", defaultFont);
+        UIManager.put("TextArea.font", defaultFont);
         JFrame frame = new JFrame("LightService Client");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);

@@ -28,9 +28,11 @@ public class LightServiceServer {
     private Properties prop;
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        System.setProperty("logback.configurationFile", "logback.xml");
         LightServiceServer server = new LightServiceServer();
         server.start();
         server.blockUntilShutdown();
+
     }
 
     private void start() throws IOException {
